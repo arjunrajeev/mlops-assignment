@@ -67,5 +67,8 @@ mlflow.register_model(
 )
 
 # Save the best model locally for FastAPI endpoint
-joblib.dump(best_model, "../models/best_model.pkl")
+model = mlflow.sklearn.load_model(
+    f"runs:/{best_model['run_id']}/{best_model['name'].lower().replace(' ', '_')}"
+)
+joblib.dump(model, "../models/best_model.pkl")
 print("✅ Best model saved locally for FastAPI endpoint.")

@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/arjunrajeev/Documents/MLOPs/mlops-assignment/app/mlruns/507414625924724833/607f74526b01403fae3931be8a94ab85/artifacts
+end_time: 1754422132261
+entry_point_name: ''
+experiment_id: '507414625924724833'
+lifecycle_stage: active
+run_id: 607f74526b01403fae3931be8a94ab85
+run_name: Decision Tree
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754422130789
+status: 3
+tags: []
+user_id: arjunrajeev
