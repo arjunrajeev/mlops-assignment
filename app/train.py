@@ -6,6 +6,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
+import joblib
 
 # Load preprocessed training and test sets
 train_df = pd.read_csv("../data/california_housing_train.csv")
@@ -64,3 +65,7 @@ mlflow.register_model(
     f"runs:/{best_run_id}/{best_model['name'].lower().replace(' ', '_')}",
     "BestCaliforniaHousingModel - " + best_model["name"]
 )
+
+# Save the best model locally for FastAPI endpoint
+joblib.dump(best_model, "../models/best_model.pkl")
+print("✅ Best model saved locally for FastAPI endpoint.")
