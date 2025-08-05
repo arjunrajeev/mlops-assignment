@@ -41,7 +41,13 @@ df['medinc_log'] = np.log1p(df['medinc'])
 # Step 6: Feature Scaling (excluding target)
 features_to_scale = df.drop('medhouseval', axis=1).columns
 scaler = StandardScaler()
-df[features_to_scale] = scaler.fit_transform(df[features_to_scale])
+scaled_features = scaler.fit_transform(df[features_to_scale])
+
+# Handle NaNs, Infs, and extreme values after scaling
+scaled_features = np.nan_to_num(scaled_features, nan=0.0, posinf=np.max(scaled_features[np.isfinite(scaled_features)]), neginf=np.min(scaled_features[np.isfinite(scaled_features)]))
+
+# Update DataFrame with cleaned scaled features
+df[features_to_scale] = scaled_features
 
 # Step 7: Train-Test Split
 X = df.drop('medhouseval', axis=1)
