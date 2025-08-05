@@ -58,8 +58,8 @@ test_df = X_test.copy()
 test_df['medhouseval'] = y_test
 
 # Step 9: Export to CSV
-df.to_csv("california_housing_preprocessed.csv", index=False)
-train_df.to_csv("california_housing_train.csv", index=False)
-test_df.to_csv("california_housing_test.csv", index=False)
+df.to_csv("../data/california_housing_preprocessed.csv", index=False)
+train_df.to_csv("../data/california_housing_train.csv", index=False)
+test_df.to_csv("../data/california_housing_test.csv", index=False)
 
 log.info("✅ Export complete: full, train, and test datasets.")
