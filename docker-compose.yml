@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   fastapi-app:
-    image: mlops-assignment-fastapi-app:latest
-    container_name: fastapi-app
+    image: arjajje/california-housing-predictor
+    container_name: california-housing-predictor-app
     ports:
       - "8000:8000"
     networks:

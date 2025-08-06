@@ -4,4 +4,4 @@ global:
 scrape_configs:
   - job_name: 'fastapi-app'
     static_configs:
-      - targets: ['fastapi-app:8000']
+      - targets: ['california-housing-predictor-app:8000']
