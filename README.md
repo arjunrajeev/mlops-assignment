@@ -1,7 +1,7 @@
 # MLOps Assignment: California Housing Prediction
 
 ## Project Overview
-This project aims to predict California housing prices using machine learning models. It implements an end-to-end pipeline for data preprocessing, model training, evaluation, and deployment using FastAPI. The project follows MLOps best practices, including version control, containerization, and model serving.
+This project aims to predict California housing prices using machine learning models. It implements an end-to-end pipeline for data preprocessing, model training, evaluation, and deployment using FastAPI. The project follows MLOps best practices, including version control, containerization, model serving, and monitoring.
 
 ---
 
@@ -33,11 +33,22 @@ This project aims to predict California housing prices using machine learning mo
 ### 3. **Model Deployment**
 - **API**: `main.py`
 - **Framework**: FastAPI
-- **Endpoint**:
+- **Endpoints**:
   - `/predict`: Accepts input features as JSON and returns predictions.
+  - `/retrain`: Accepts new data and retrains the model.
 - **Model Loading**: The saved model (`best_model.pkl`) is loaded for inference.
+- **Input Validation**: Pydantic schemas are used to validate input data.
 
-### 4. **Containerization**
+### 4. **Monitoring**
+- **Integration**: Prometheus is integrated for monitoring.
+- **Metrics**:
+  - API request counts.
+  - Latency.
+  - Error rates.
+- **Dashboard**: Grafana is used to visualize metrics.
+  - Sample dashboard JSON is provided in `grafana/dashboards/fastapi_metrics.json`.
+
+### 5. **Containerization**
 - **Dockerfile**:
   - Base image: `python:3.12-slim`
   - Dependencies: Installed via `requirements.txt`.
@@ -71,6 +82,16 @@ mlops-assignment/
 │   ├── california_housing_test.csv
 ├── models/
 │   ├── best_model.pkl
+├── grafana/
+│   ├── dashboards/
+│   │   ├── dashboard.yml
+│   │   ├── fastapi_metrics.json
+│   ├── provisioning/
+│   │   ├── dashboards/
+│   │   │   ├── dashboard.yml
+│   │   │   ├── fastapi_metrics.json
+│   │   ├── datasources/
+│   │   │   ├── datasource.yml
 ```
 
 ---
@@ -99,6 +120,7 @@ uvicorn app.main:app --reload
 
 ### 5. **Test API**
 Use the sample `curl` command:
+
 ```bash
 curl -X POST http://localhost:8000/predict \
   -H "Content-Type: application/json" \
@@ -126,11 +148,14 @@ curl -X POST http://localhost:8000/predict \
   - Modular code structure.
   - Experiment tracking with MLflow.
   - Containerization with Docker.
+  - Monitoring with Prometheus and Grafana.
 - **Scalable Deployment**:
   - FastAPI for serving predictions.
   - Docker for portability.
 - **Robust Preprocessing**:
   - Handling of NaNs, Infs, and extreme values.
+- **Retraining**:
+  - `/retrain` endpoint for model retraining on new data.
 
 ---
 
