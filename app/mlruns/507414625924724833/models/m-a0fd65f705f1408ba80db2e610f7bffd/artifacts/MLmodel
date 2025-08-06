@@ -1,0 +1,42 @@
+artifact_path: file:///Users/arjunrajeev/Documents/MLOPs/mlops-assignment/app/mlruns/507414625924724833/models/m-a0fd65f705f1408ba80db2e610f7bffd/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.9.6
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+is_signature_from_type_hint: false
+mlflow_version: 3.1.4
+model_id: m-a0fd65f705f1408ba80db2e610f7bffd
+model_size_bytes: 2119
+model_uuid: m-a0fd65f705f1408ba80db2e610f7bffd
+prompts: null
+run_id: 78f8213f367047c0bc63f4be86308abb
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "medinc", "required": true}, {"type": "double",
+    "name": "house_age", "required": true}, {"type": "double", "name": "ave_rooms",
+    "required": true}, {"type": "double", "name": "ave_bedrms", "required": true},
+    {"type": "double", "name": "population", "required": true}, {"type": "double",
+    "name": "ave_occup", "required": true}, {"type": "double", "name": "latitude",
+    "required": true}, {"type": "double", "name": "longitude", "required": true},
+    {"type": "double", "name": "households", "required": true}, {"type": "double",
+    "name": "rooms_per_household", "required": true}, {"type": "double", "name": "bedrooms_per_room",
+    "required": true}, {"type": "double", "name": "population_per_household", "required":
+    true}, {"type": "double", "name": "medinc_log", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-08-05 19:00:46.635457'

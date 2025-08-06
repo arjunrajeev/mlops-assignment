@@ -1,0 +1,6 @@
+destination_id: m-c2300ab8d00f4c4aacc70d4061693e9e
+destination_type: MODEL_OUTPUT
+source_id: m-c2300ab8d00f4c4aacc70d4061693e9e
+source_type: RUN_OUTPUT
+step: 0
+tags: {}
